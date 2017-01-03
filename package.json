@@ -1,0 +1,29 @@
+{
+  "name": "mean-app",
+  "version": "1.0.0",
+  "description": "MEAN-stack application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leetsai/MEAN-Hotel.git"
+  },
+  "keywords": [
+    "mean"
+  ],
+  "author": "Lee Tsai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leetsai/MEAN-Hotel/issues"
+  },
+  "homepage": "https://github.com/leetsai/MEAN-Hotel#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}
