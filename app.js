@@ -1,8 +1,13 @@
 var express = require("express");
 var app = express(); // initialize express
 var path = require("path"); // a native node module useful for sendFile
+var routes = require("./routes");
 
-app.set('port', 1337); // create a variable called port and give it a value of 1337
+// create a variable called port and give it a value of 1337
+app.set('port', 1337);
+
+// this routes helps us achieve separation of concerns
+app.use("/api", routes);
 
 // the following is a middleware that console logs all the static files that get
 // loaded
@@ -12,20 +17,6 @@ app.use(function(req, res, next) {
 });
 
 app.use(express.static(path.join(__dirname, "public")));
-
-app.get('/json', function(req, res) {
-  console.log("GET the JSON");
-  res
-    .status(200)
-    .send( {"jsonData" : true} );
-});
-
-app.get('/file', function(req, res) {
-  console.log("GET the file");
-  res
-    .status(200)
-    .sendFile(path.join(__dirname, "app.js"));
-});
 
 var server = app.listen(app.get("port"), function() {
   var port = server.address().port;
