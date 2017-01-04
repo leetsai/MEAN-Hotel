@@ -1,8 +1,29 @@
 var express = require("express");
-
 var app = express(); // initialize express
+var path = require("path"); // a native node module useful for sendFile
 
 app.set('port', 1337); // create a variable called port and give it a value of 1337
+
+app.get('/', function(req, res) {
+  console.log("GET the homepage");
+  res
+    .status(200)
+    .sendFile(path.join(__dirname,"public","index.html"));
+});
+
+app.get('/json', function(req, res) {
+  console.log("GET the JSON");
+  res
+    .status(200)
+    .send( {"jsonData" : true} );
+});
+
+app.get('/file', function(req, res) {
+  console.log("GET the file");
+  res
+    .status(200)
+    .sendFile(path.join(__dirname, "app.js"));
+});
 
 var server = app.listen(app.get("port"), function() {
   var port = server.address().port;
