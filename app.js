@@ -4,12 +4,7 @@ var path = require("path"); // a native node module useful for sendFile
 
 app.set('port', 1337); // create a variable called port and give it a value of 1337
 
-app.get('/', function(req, res) {
-  console.log("GET the homepage");
-  res
-    .status(200)
-    .sendFile(path.join(__dirname,"public","index.html"));
-});
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get('/json', function(req, res) {
   console.log("GET the JSON");
