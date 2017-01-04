@@ -1,7 +1,7 @@
 var express = require("express");
 var app = express(); // initialize express
 var path = require("path"); // a native node module useful for sendFile
-var routes = require("./routes");
+var routes = require("./api/routes");
 
 // create a variable called port and give it a value of 1337
 app.set('port', 1337);
