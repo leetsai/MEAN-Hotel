@@ -6,4 +6,8 @@ router
   .route("/hotels")
   .get(ctrlHotels.hotelsGetAll);
 
+router
+  .route("/hotels/:hotelId") // Express parameter indicated by ":"
+  .get(ctrlHotels.hotelsGetOne);
+
 module.exports = router;
