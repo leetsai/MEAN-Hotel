@@ -1,9 +1,14 @@
 // controllers control the logic and the functionalies of our routing
 
+var dbconn = require("../data.dbconnection.js");
 var hotelData = require("../data/hotel-data.json");
 
 module.exports.hotelsGetAll = function(req, res) {
-  console.log("GET the JSON");
+  var db = dbconn.get();
+
+  console.log("db", db);
+
+  console.log("GET the hotels!");
   console.log(req.query) // the request object has a query property that automatically
   // parses the queries embedded in the url
 
@@ -26,6 +31,8 @@ module.exports.hotelsGetAll = function(req, res) {
 };
 
 module.exports.hotelsGetOne = function(req, res) {
+  var db = dbconn.get();
+
   var hotelId = req.params.hotelId;
   var thisHotel = hotelData[hotelId];
 
@@ -36,6 +43,8 @@ module.exports.hotelsGetOne = function(req, res) {
 };
 
 module.exports.hotelsAddOne = function(req, res) {
+  var db = dbconn.get();
+
   console.log("POST new hotel");
   console.log(req.body);
   res
